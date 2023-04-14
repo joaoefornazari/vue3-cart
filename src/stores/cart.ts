@@ -10,6 +10,9 @@ export const useCartStore = defineStore({
 	getters: {
 		itemsCount(): number {
 			return this.items.length
+		},
+		getItems(): Item[] {
+			return this.items
 		}
 	},
 	actions: {
