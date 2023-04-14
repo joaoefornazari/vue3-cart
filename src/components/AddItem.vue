@@ -8,7 +8,7 @@
 			<label class="form-label">URL</label>
 			<input v-model="inputs.url" type="text" class="form-control" />
 		</div>
-		<button type="submit" class="btn btn-success"></button>
+		<button @click="submit" class="btn btn-success">Add</button>
 	</form>
 </template>
 
@@ -20,7 +20,9 @@ export default defineComponent({
 	setup() {
 		const inputs = reactive({ name: '', url: ''  })
 		const cart = useCartStore()
-		const submit = () => {
+		const submit = (event: Event) => {
+			event.preventDefault()
+			alert('Guacamole')
 			cart.addItem({ ...inputs })
 			inputs.name = ''
 			inputs.url = ''
